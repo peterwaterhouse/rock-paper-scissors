@@ -7,18 +7,33 @@ let computerChoice = "rock"
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
+const resultDiv = document.querySelector(".result");
+const humanScoreDiv = document.querySelector(".humanScore");
+const computerScoreDiv = document.querySelector(".computerScore");
+
+
 
 rockButton.addEventListener("click", () => {
-    console.log(playRound("rock", getComputerChoice()));
+    resultDiv.textContent = (playRound("rock", getComputerChoice()));
+    humanScoreDiv.textContent = ("Human score: " + humanScore);
+    computerScoreDiv.textContent = ("Computer score: " + computerScore);
+    checkWinner();
 });
 
 paperButton.addEventListener("click", () => {
-    console.log(playRound("paper", getComputerChoice()));
+    resultDiv.textContent = (playRound("paper", getComputerChoice()));
+    humanScoreDiv.textContent = ("Human score: " + humanScore);
+    computerScoreDiv.textContent = ("Computer score: " + computerScore);
+    checkWinner();
 });
 
 scissorsButton.addEventListener("click", () => {
-    console.log(playRound("scissors", getComputerChoice()));
+    resultDiv.textContent = (playRound("scissors", getComputerChoice()));
+    humanScoreDiv.textContent = ("Human score: " + humanScore);
+    computerScoreDiv.textContent = ("Computer score: " + computerScore);
+    checkWinner();
 });
+
 
 
 
@@ -33,6 +48,20 @@ function getHumanChoice() {
         }
     } else {
         return getHumanChoice()
+    }
+}
+
+function checkWinner() {
+    if (humanScore === 5) {
+        humanScoreDiv.textContent = ("You win!");
+        computerScoreDiv.textContent = ("");
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        humanScoreDiv.textContent = ("You lose!");
+        computerScoreDiv.textContent = ("");
+        humanScore = 0;
+        computerScore = 0;
     }
 }
 
