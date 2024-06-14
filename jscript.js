@@ -1,7 +1,26 @@
 let humanScore = 0
 let computerScore = 0
 
-playGame()
+let humanChoice = "rock"
+let computerChoice = "rock"
+
+const rockButton = document.querySelector(".rock");
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
+
+rockButton.addEventListener("click", () => {
+    console.log(playRound("rock", getComputerChoice()));
+});
+
+paperButton.addEventListener("click", () => {
+    console.log(playRound("paper", getComputerChoice()));
+});
+
+scissorsButton.addEventListener("click", () => {
+    console.log(playRound("scissors", getComputerChoice()));
+});
+
+
 
 function getHumanChoice() {
     humanChoice = prompt("Enter 'rock', 'paper' or 'scissors'")
@@ -40,10 +59,10 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    for (i = 0; i < 5; i++) {
-        console.log(playRound(getHumanChoice(), getComputerChoice()))
-        console.log("Your score: " + humanScore)
-        console.log("Computer score: " + computerScore)
-    }
-}
+// function playGame() {
+//     for (i = 0; i < 5; i++) {
+//         console.log(playRound(getHumanChoice(), getComputerChoice()))
+//         console.log("Your score: " + humanScore)
+//         console.log("Computer score: " + computerScore)
+//     }
+// }
